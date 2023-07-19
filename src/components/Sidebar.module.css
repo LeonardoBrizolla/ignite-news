@@ -67,3 +67,7 @@
   background-color: var(--green-500);
   color: var(--white);
 }
+
+.sidebar footer a:focus {
+  box-shadow: 0 0 0 2px var(--white);
+}
