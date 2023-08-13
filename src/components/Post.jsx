@@ -29,6 +29,16 @@ export function Post({ author, publishedAt, content }) {
     setNewCommentText(event.target.value);
   }
 
+  function deleteComment(commentTextToDelete) {
+    // Para deletar algo de state de React, nós primeiro CRIAMOS uma novo state e depois nós SALVAMOS. Desta forma mantemos seguimos o conceito de IMUTABILIDADE do React e deixamos o software mais PERFORMÁTICO.
+    // CREATE
+    const commentsWithoutDeleteOne = comments.filter((commentText) => {
+      return commentText !== commentTextToDelete;
+    });
+    // SAVE
+    setComments(commentsWithoutDeleteOne);
+  }
+
   return (
     <article className={styles.post}>
       <header>
@@ -81,7 +91,13 @@ export function Post({ author, publishedAt, content }) {
 
       <div className={styles.commentList}>
         {comments.map((comment) => {
-          return <Comment key={comment} content={comment} />;
+          return (
+            <Comment
+              key={comment}
+              content={comment}
+              onDeleteComment={deleteComment}
+            />
+          );
         })}
       </div>
     </article>
