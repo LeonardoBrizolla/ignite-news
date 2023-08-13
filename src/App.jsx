@@ -1,10 +1,10 @@
-import { Header } from "./components/Header";
-import { Post } from "./components/Post";
-import { Sidebar } from "./components/Sidebar";
+import { Header } from './components/Header';
+import { Post } from './components/Post';
+import { Sidebar } from './components/Sidebar';
 
-import styles from "./App.module.css";
+import styles from './App.module.css';
 
-import "./global.css";
+import './global.css';
 
 const posts = [
   {
@@ -12,30 +12,38 @@ const posts = [
     author: {
       avatarUrl: 'https://github.com/leonardobrizolla.png',
       name: 'Leonardo Brizolla',
-      role: 'Dev full cycle'
+      role: 'Dev full cycle',
     },
     content: [
       { type: 'paragraph', content: 'Fala galeraa 👋' },
-      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu github. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
-      { type: 'link', content: 'jane.design/doctorcare' }
+      {
+        type: 'paragraph',
+        content:
+          'Acabei de subir mais um projeto no meu github. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀',
+      },
+      { type: 'link', content: 'jane.design/doctorcare' },
     ],
-    publishedAt: new Date('2023-07-25 21:00:00')
+    publishedAt: new Date('2023-07-25 21:00:00'),
   },
   {
-    id: 1,
+    id: 2,
     author: {
       avatarUrl: 'https://github.com/maykbrito.png',
       name: 'Mayk Brito',
-      role: 'Educator @ Rocketseat'
+      role: 'Educator @ Rocketseat',
     },
     content: [
       { type: 'paragraph', content: 'Fala galeraa 👋' },
-      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu github. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
-      { type: 'link', content: 'jane.design/doctorcare' }
+      {
+        type: 'paragraph',
+        content:
+          'Acabei de subir mais um projeto no meu github. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀',
+      },
+      { type: 'link', content: 'jane.design/doctorcare' },
     ],
-    publishedAt: new Date('2023-07-24 20:00:00')
-  }
-]
+    publishedAt: new Date('2023-07-24 20:00:00'),
+  },
+];
 
 export function App() {
   return (
@@ -46,15 +54,15 @@ export function App() {
         <Sidebar />
 
         <main>
-          {posts.map(post => {
+          {posts.map((post) => {
             return (
               <Post
-                key={post.id}
+                key={post.id} // KEY == BEST PERFORMANCE  🚀
                 author={post.author}
                 content={post.content}
                 publishedAt={post.publishedAt}
               />
-            )
+            );
           })}
         </main>
       </div>
