@@ -11,7 +11,8 @@ export function Comment({ content, onDeleteComment }) {
   }
 
   function handleLikeComment() {
-    setLikeCount(likeCount + 1);
+    // Closures React, usar a arrow function dentro do setState para pegar o valor atual do state e atualiza-lo.
+    setLikeCount((state) => state + 1);
   }
 
   return (
